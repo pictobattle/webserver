@@ -9,4 +9,4 @@ def index():
 
 @app.route("/user/logIn/callback/")
 def login_callback():
-    return str(request.data)
+    return str(request.args.get('code'))
