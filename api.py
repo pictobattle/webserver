@@ -3,7 +3,7 @@ import requests
 import os
 app = Flask(__name__)
 
-API_URL = "api.pictobattle.com"
+API_URL = "http://api.pictobattle.com"
 
 LOGIN_CALLBACK_URI = "/user/logIn/callback/"
 INSTAGRAM_ID = os.environ['INSTAGRAM_ID']
