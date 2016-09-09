@@ -7,6 +7,6 @@ def index():
     return "Hello World!"
 
 
-@app.route("/logIn/callback")
+@app.route("/user/logIn/callback")
 def login_callback():
     return str(request.get_json())
