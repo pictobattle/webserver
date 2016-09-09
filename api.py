@@ -1,6 +1,5 @@
 from flask import Flask, request
-import urllib
-import urllib2
+import requests
 import os
 app = Flask(__name__)
 
@@ -23,7 +22,7 @@ def login_callback():
                 'grant_type': GRANT_TYPE,
                 'redirect_uri': API_URL + LOGIN_CALLBACK_URI,
                 'code': request.args.get('code')}
-    url_data = urllib.urlencode(url_data)
-    user_data = urllib2.urlopen('https://api.instagram.com/oauth/access_token',
-                                url_data).read()
+    req = requests.post('https://api.instagram.com/oauth/access_token',
+                        data=url_data)
+    user_data = req.text
     return str(user_data)
